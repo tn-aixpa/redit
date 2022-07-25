@@ -1,0 +1,6 @@
+PER
+ORG
+LOC
+LEX
+ENTE	ORG
+O
