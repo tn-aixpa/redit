@@ -1,51 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <groupId>eu.fbk.dh</groupId>
-    <artifactId>redit</artifactId>
-    <version>0.1-SNAPSHOT</version>
-    <name>REDIT</name>
-    <description>Relation and Entities Dataset for Italian with Tint</description>
+	<groupId>eu.fbk.dh</groupId>
+	<artifactId>redit</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<name>REDIT</name>
+	<description>Relation and Entities Dataset for Italian with Tint</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>4.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>23.0</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.fbk.utils</groupId>
-            <artifactId>utils-core</artifactId>
-            <version>3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.8</version>
-        </dependency>
-        <dependency>
-            <groupId>eu.fbk.dh</groupId>
-            <artifactId>tint-runner</artifactId>
-            <version>0.3</version>
-        </dependency>
-    </dependencies>
-
-    <properties>
+	<properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <tint.utils.version>3.2</tint.utils.version>
+        <kd.version>0.1</kd.version>
+        <fcw.version>0.2</fcw.version>
+        <tint.version>0.3</tint.version>
+        <corenlp-version>4.2.0</corenlp-version>
+        <log4j2.version>2.17.1</log4j2.version>
+        <slf4j.version>1.7.25</slf4j.version>
+        <site.root>http://tint.fbk.eu/</site.root>
     </properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>23.0</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.fbk.utils</groupId>
+			<artifactId>utils-core</artifactId>
+			<version>3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>eu.fbk.dh</groupId>
+			<artifactId>tint-runner</artifactId>
+			<version>0.3</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>complete</id>
+
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+
+			<dependencies>
+				<!-- Secondary annotators -->
+				<dependency>
+					<groupId>eu.fbk.fcw</groupId>
+					<artifactId>fcw-depparse</artifactId>
+					<version>${fcw.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>eu.fbk.fcw</groupId>
+					<artifactId>fcw-linking</artifactId>
+					<version>${fcw.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>eu.fbk.dh</groupId>
+					<artifactId>tint-derived</artifactId>
+					<version>${tint.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>eu.fbk.dh</groupId>
+					<artifactId>tint-heideltime-annotator</artifactId>
+					<version>${tint.version}</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>eu.fbk.dh</groupId>
+					<artifactId>KD-StanfordAnnotator</artifactId>
+					<version>${kd.version}</version>
+				</dependency>				
+			</dependencies>
+
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>single</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+							<descriptors>
+								<descriptor>src/main/assembly/bin.xml</descriptor>
+							</descriptors>
+							<finalName>redit-${project.version}-complete</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>

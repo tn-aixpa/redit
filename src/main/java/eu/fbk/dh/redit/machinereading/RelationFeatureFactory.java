@@ -1,46 +1,46 @@
 package eu.fbk.dh.redit.machinereading;
 
-import edu.stanford.nlp.ling.Datum;
-import eu.fbk.dh.redit.machinereading.structure.RelationMention;
-
 import java.util.Set;
 import java.util.logging.Logger;
 
+import edu.stanford.nlp.ling.Datum;
+import eu.fbk.dh.redit.machinereading.structure.RelationMention;
+
 /**
- * Base class for feature factories
- * Created by Sonal Gupta.
+ * Base class for feature factories Created by Sonal Gupta.
  */
 public abstract class RelationFeatureFactory {
 
-    public static enum DEPENDENCY_TYPE {
-        BASIC, COLLAPSED, COLLAPSED_CCPROCESSED;
-    }
+	public static enum DEPENDENCY_TYPE {
+		BASIC, COLLAPSED, COLLAPSED_CCPROCESSED;
+	}
 
-    /**
-     * If true, it does not create any lexicalized features from the first argument (needed for KBP)
-     */
-    protected boolean doNotLexicalizeFirstArg;
+	/**
+	 * If true, it does not create any lexicalized features from the first argument
+	 * (needed for KBP)
+	 */
+	protected boolean doNotLexicalizeFirstArg;
 
-    /**
-     * Which dependencies to use for feature extraction
-     */
-    protected DEPENDENCY_TYPE dependencyType;
+	/**
+	 * Which dependencies to use for feature extraction
+	 */
+	protected DEPENDENCY_TYPE dependencyType;
 
-    public abstract Datum<String, String> createDatum(RelationMention rel, String label);
+	public abstract Datum<String, String> createDatum(RelationMention rel, String label);
 
-    public abstract Datum<String, String> createDatum(RelationMention rel);
+	public abstract Datum<String, String> createDatum(RelationMention rel);
 
-    public void setDoNotLexicalizeFirstArgument(boolean doNotLexicalizeFirstArg) {
-        this.doNotLexicalizeFirstArg = doNotLexicalizeFirstArg;
-    }
+	public void setDoNotLexicalizeFirstArgument(boolean doNotLexicalizeFirstArg) {
+		this.doNotLexicalizeFirstArg = doNotLexicalizeFirstArg;
+	}
 
-    public abstract String getFeature(RelationMention rel, String dependency_path_lowlevel);
+	public abstract String getFeature(RelationMention rel, String dependency_path_lowlevel);
 
-    public abstract Set<String> getFeatures(RelationMention rel, String dependency_path_words);
+	public abstract Set<String> getFeatures(RelationMention rel, String dependency_path_words);
 
-    /*
-     * If in case, creating test datum is different.
-     */
-    public abstract Datum<String, String> createTestDatum(RelationMention rel, Logger logger);
+	/*
+	 * If in case, creating test datum is different.
+	 */
+	public abstract Datum<String, String> createTestDatum(RelationMention rel, Logger logger);
 
 }

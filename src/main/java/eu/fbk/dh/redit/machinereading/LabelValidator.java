@@ -7,5 +7,5 @@ package eu.fbk.dh.redit.machinereading;
 import eu.fbk.dh.redit.machinereading.structure.ExtractionObject;
 
 public interface LabelValidator {
-    public boolean validLabel(String label, ExtractionObject object);
+	public boolean validLabel(String label, ExtractionObject object);
 }

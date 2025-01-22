@@ -1,6 +1,10 @@
 package eu.fbk.dh.redit.machinereading.structure;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Relation holds a map from relation to relation mentions. Assumes a single
@@ -8,22 +12,20 @@ import java.util.*;
  */
 public class Relation {
 
-    private Map<String, List<RelationMention>> relationToRelationMentions = new HashMap<>();
+	private Map<String, List<RelationMention>> relationToRelationMentions = new HashMap<>();
 
-    public void addRelation(String relation, RelationMention rm) {
-        List<RelationMention> mentions = this.relationToRelationMentions
-                .get(relation);
-        if (mentions == null) {
-            mentions = new ArrayList<>();
-            this.relationToRelationMentions.put(relation, mentions);
-        }
-        mentions.add(rm);
-    }
+	public void addRelation(String relation, RelationMention rm) {
+		List<RelationMention> mentions = this.relationToRelationMentions.get(relation);
+		if (mentions == null) {
+			mentions = new ArrayList<>();
+			this.relationToRelationMentions.put(relation, mentions);
+		}
+		mentions.add(rm);
+	}
 
-    public List<RelationMention> getRelationMentions(String relation) {
-        List<RelationMention> retVal = this.relationToRelationMentions
-                .get(relation);
-        return retVal != null ? retVal : Collections.<RelationMention>emptyList();
-    }
+	public List<RelationMention> getRelationMentions(String relation) {
+		List<RelationMention> retVal = this.relationToRelationMentions.get(relation);
+		return retVal != null ? retVal : Collections.<RelationMention>emptyList();
+	}
 
 }
