@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  redit:
+    build:
+     context: .
+    container_name: redit
+    ports:
+      - "8015:8015"
+  redit-frontend:
+    image: httpd:latest
+    container_name: redit-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - redit
+    volumes:
+      - ./relation-extraction:/usr/local/apache2/htdocs/
+      - ./000-default.conf:/usr/local/apache2/conf/extra/httpd-default.conf
+      - ./my-httpd.conf:/usr/local/apache2/conf/httpd.conf
