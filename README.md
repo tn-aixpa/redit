@@ -1,13 +1,17 @@
-# redit
-REDIT - A relation extraction module for Tint
+# Redit
 
+#### AIPC 
+- ```kind```: product-template
+- ```ai```: NLP
+- ```domain```: PA
 
+A relation extraction module for Tint. The project makes use of Tint (The Italian NLP Tool) for Natural Language Processing (NLP) in Italian for extracting the relation of entities. The product contains
+template userface for demonstration.
 
-## Build
+## Usage
 
-mvn -P complete clean install
+Tool usage documentation [here](./docs/usage.md).
 
+## License
 
-## Run
-
-java -cp target\redit-0.1-SNAPSHOT-complete.jar eu.fbk.dh.tint.runner.TintServer -c src/main/resources/tint.properties -p 8015
+[Apache License 2.0](./LICENSE)
