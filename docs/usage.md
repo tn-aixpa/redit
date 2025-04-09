@@ -27,7 +27,7 @@
 ### Interface
 The inteface is available on url 'http://localhost:8080'
 
- ![image](https://github.com/tn-aixpa/redit/main/assets/1.png)
+ ![image](https://github.com/tn-aixpa/redit/blob/main/assets/1.jpg)
 
 
 ### API
