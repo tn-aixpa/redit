@@ -22,3 +22,22 @@
   http://localhost:8080
   ```
 
+## Usage
+
+### Interface
+The inteface is available on url 'http://localhost:8080'
+
+ ![image](https://github.com/tn-aixpa/redit/edit/main/assets/1.png)
+
+
+### API
+
+- The api is available on url
+  ```
+  http://localhost:8080/re-api/tint
+  ```
+
+  
+
+
+ 
