@@ -18,8 +18,28 @@ The tool is packaged as a container. In order to install it, see the following i
   ```
    docker compose up
    ```
+  It takes a while to load the pipeline with rules (normalization, sentence splitting etc) and extraction model.
+
+  ```
+redit-frontend  | [Thu Apr 10 08:47:50.677906 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+redit           | [main] INFO  eu.fbk.dh.tint.runner.TintServer  - starting 0.0.0.0     8015 (Thu Apr 10 08:47:50 GMT 2025)...
+redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 37 normalization rules
+redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 3 sentence splitting rules
+redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 2 newline chars
+redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 6 token splitting rules
+redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 20 regular expressions
+redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 353 abbreviations
+redit           | [main] INFO  eu.fbk.dh.tint.digimorph.annotator.GuessModelInstance  - Loading guess model for lemma
+redit           | [main] INFO  eu.fbk.dh.utils.wemapp.annotators.RelationExtractorAnnotator  - Loading relation model from relation_model_pipeline.ser
+redit           | [main] INFO  eu.fbk.dh.tint.runner.TintServer  - Pipeline loaded
+redit           | Apr 10, 2025 8:51:26 AM org.glassfish.grizzly.http.server.NetworkListener start
+redit           | INFO: Started listener bound to [0.0.0.0:8015]
+redit           | Apr 10, 2025 8:51:26 AM org.glassfish.grizzly.http.server.HttpServer start
+redit           | INFO: [HttpServer] Started.
+  ``` 
 
 - Once the container is up, the interface console is started by default on port 8080 and can be accessed at url
+  
   ```
   http://localhost:8080
   ```
@@ -46,7 +66,8 @@ It can be invoked using WGET or CURL as shown in example(CURL) below.
 
 
 ```
-..>curl -X POST http://localhost:8080/re-api/tint -H 'Content-Type: application/json' -d 'Il sottoscritto Luca Rosetti, nato a Brindisi il 4 maggio 1984 e residente a Sanremo (IM) in Via Matteotti 42 dichiara di essere titolare dell'
+..>curl -X POST "http://localhost:8080/re-api/tint" -H 'Content-Type: application/json' 'Accept: application/json' -d "Il sottoscritto Luca Rosetti, nato a Brindisi il 4 maggio 1984 e residente a Sanremo (IM) in Via Matteotti 42 dichiara di essere titolare dell"
+
 {
   "docDate": "2025-04-09",
   "timings": "Annotation pipeline timing information:\nItalianTokenizerAnnotator: 0.0 sec.\nTrueCaseAnnotator: 0.0 sec.\nAllUpperReplacerAnnotator: 0.0 sec.\nPOSTaggerAnnotator: 0.0 sec.\nUPosAnnotator: 0.0 sec.\nSplitterAnnotator: 0.0 sec.\nDigiMorphAnnotator: 0.0 sec.\nDigiLemmaAnnotator: 0.0 sec.\nNERCombinerAnnotator: 0.0 sec.\nTokensRegexAnnotator: 0.0 sec.\nNumeroCivicoAnnotator: 0.0 sec.\nEnteAnnotator: 0.0 sec.\nEntityAnnotator: 0.0 sec.\nParserAnnotator: 0.0 sec.\nDependencyParseAnnotator: 0.0 sec.\nRelationExtractorAnnotator: 0.0 sec.\nTOTAL: 0.0 sec. for 1 tokens at 250.0 tokens/sec.",
@@ -105,9 +126,10 @@ It can be invoked using WGET or CURL as shown in example(CURL) below.
           "guessed_lemma": true
         }
       ],
-      "entities": [],
-      "relations": []
-    }
+...
+..
+..
+}
   ]
 }
 ```
