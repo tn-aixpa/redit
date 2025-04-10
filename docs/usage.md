@@ -21,21 +21,21 @@ The tool is packaged as a container. In order to install it, see the following i
   It takes a while to load the pipeline with rules (normalization, sentence splitting etc) and extraction model.
 
   ```
-redit-frontend  | [Thu Apr 10 08:47:50.677906 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
-redit           | [main] INFO  eu.fbk.dh.tint.runner.TintServer  - starting 0.0.0.0     8015 (Thu Apr 10 08:47:50 GMT 2025)...
-redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 37 normalization rules
-redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 3 sentence splitting rules
-redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 2 newline chars
-redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 6 token splitting rules
-redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 20 regular expressions
-redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 353 abbreviations
-redit           | [main] INFO  eu.fbk.dh.tint.digimorph.annotator.GuessModelInstance  - Loading guess model for lemma
-redit           | [main] INFO  eu.fbk.dh.utils.wemapp.annotators.RelationExtractorAnnotator  - Loading relation model from relation_model_pipeline.ser
-redit           | [main] INFO  eu.fbk.dh.tint.runner.TintServer  - Pipeline loaded
-redit           | Apr 10, 2025 8:51:26 AM org.glassfish.grizzly.http.server.NetworkListener start
-redit           | INFO: Started listener bound to [0.0.0.0:8015]
-redit           | Apr 10, 2025 8:51:26 AM org.glassfish.grizzly.http.server.HttpServer start
-redit           | INFO: [HttpServer] Started.
+  redit-frontend  | [Thu Apr 10 08:47:50.677906 2025] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+  redit           | [main] INFO  eu.fbk.dh.tint.runner.TintServer  - starting 0.0.0.0     8015 (Thu Apr 10 08:47:50 GMT 2025)...
+  redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 37 normalization rules
+  redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 3 sentence splitting rules
+  redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 2 newline chars
+  redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 6 token splitting rules
+  redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 20 regular expressions
+  redit           | [main] INFO  eu.fbk.dh.tint.tokenizer.ItalianTokenizer  - Loaded 353 abbreviations
+  redit           | [main] INFO  eu.fbk.dh.tint.digimorph.annotator.GuessModelInstance  - Loading guess model for lemma
+  redit           | [main] INFO  eu.fbk.dh.utils.wemapp.annotators.RelationExtractorAnnotator  - Loading relation model from relation_model_pipeline.ser
+  redit           | [main] INFO  eu.fbk.dh.tint.runner.TintServer  - Pipeline loaded
+  redit           | Apr 10, 2025 8:51:26 AM org.glassfish.grizzly.http.server.NetworkListener start
+  redit           | INFO: Started listener bound to [0.0.0.0:8015]
+  redit           | Apr 10, 2025 8:51:26 AM org.glassfish.grizzly.http.server.HttpServer start
+  redit           | INFO: [HttpServer] Started.
   ``` 
 
 - Once the container is up, the interface console is started by default on port 8080 and can be accessed at url
