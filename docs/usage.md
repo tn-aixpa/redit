@@ -67,7 +67,10 @@ It can be invoked using WGET or CURL as shown in example(CURL) below.
 
 ```
 ..>curl -X POST "http://localhost:8080/re-api/tint" -H 'Content-Type: application/json' 'Accept: application/json' -d "Il sottoscritto Luca Rosetti, nato a Brindisi il 4 maggio 1984 e residente a Sanremo (IM) in Via Matteotti 42 dichiara di essere titolare dell"
+```
+The predicted relation-extractor output looks like the following
 
+```
 {
   "docDate": "2025-04-09",
   "timings": "Annotation pipeline timing information:\nItalianTokenizerAnnotator: 0.0 sec.\nTrueCaseAnnotator: 0.0 sec.\nAllUpperReplacerAnnotator: 0.0 sec.\nPOSTaggerAnnotator: 0.0 sec.\nUPosAnnotator: 0.0 sec.\nSplitterAnnotator: 0.0 sec.\nDigiMorphAnnotator: 0.0 sec.\nDigiLemmaAnnotator: 0.0 sec.\nNERCombinerAnnotator: 0.0 sec.\nTokensRegexAnnotator: 0.0 sec.\nNumeroCivicoAnnotator: 0.0 sec.\nEnteAnnotator: 0.0 sec.\nEntityAnnotator: 0.0 sec.\nParserAnnotator: 0.0 sec.\nDependencyParseAnnotator: 0.0 sec.\nRelationExtractorAnnotator: 0.0 sec.\nTOTAL: 0.0 sec. for 1 tokens at 250.0 tokens/sec.",
