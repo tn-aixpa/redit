@@ -1,6 +1,6 @@
 # Redit
 
-The Tint tool is packaged as a container. In order to install it, see the following instructions
+The tool is packaged as a container. In order to install it, see the following instructions
 
 ## Installation
 
@@ -27,19 +27,23 @@ The Tint tool is packaged as a container. In order to install it, see the follow
 ## Usage
 
 ### Interface
-The inteface is available on url 'http://localhost:8080'
+The inteface is available on url 'http://localhost:8080'. The tool is preconfigured with sample input sentences which are used to depict relation extraction. The tool predict attributes and relations for entities in a sentence as can be seen in image below.
+
 
  ![image](https://github.com/tn-aixpa/redit/blob/main/assets/1.jpg)
 
 
+
 ### API
 
-- The api is available on url
+- The tool provides Application programmer interface(API).  The API is available on url
+  
   ```
   http://localhost:8080/re-api/tint
   ```
 
-The API can be invoked using WGET or CURL as shown below
+It can be invoked using WGET or CURL as shown in example(CURL) below.
+
 
 ```
 ..>curl -X POST http://localhost:8080/re-api/tint -H 'Content-Type: application/json' -d 'Il sottoscritto Luca Rosetti, nato a Brindisi il 4 maggio 1984 e residente a Sanremo (IM) in Via Matteotti 42 dichiara di essere titolare dell'
@@ -105,7 +109,7 @@ The API can be invoked using WGET or CURL as shown below
       "relations": []
     }
   ]
-}cur
+}
 ```
   
 
