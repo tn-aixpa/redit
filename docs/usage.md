@@ -1,6 +1,8 @@
 # Redit
 
-## Docker installation
+The Tint tool is packaged as a container. In order to install it, see the following instructions
+
+## Installation
 
 ### Requirements
 - docker > 1.18
@@ -17,7 +19,7 @@
    docker compose up
    ```
 
-- Interface console is available at url
+- Once the container is up, the interface console is started by default on port 8080 and can be accessed at url
   ```
   http://localhost:8080
   ```
