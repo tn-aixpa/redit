@@ -15,10 +15,10 @@ ENV APP=redit-0.1-SNAPSHOT-complete
 ENV FOLDER=/tmp/target
 # create a user group and a user
 RUN  addgroup -g ${USER_GROUP_ID} ${USER_GROUP}; \
-     adduser -u ${USER_ID} -D -g '' -h ${USER_HOME} -G ${USER_GROUP} ${USER} ;
+    adduser -u ${USER_ID} -D -g '' -h ${USER_HOME} -G ${USER_GROUP} ${USER} ;
 
 WORKDIR ${USER_HOME}
 COPY --chown=redit:redit --from=mvn /tmp/redit/target/${APP}.jar ${USER_HOME}
 COPY --chown=redit:redit --from=mvn /tmp/redit/src/main/resources ${USER_HOME}
-USER redit
+USER ${USER_ID}
 ENTRYPOINT ["sh", "-c", "java -Xmx8G -cp ${APP}.jar eu.fbk.dh.tint.runner.TintServer -c tint.properties -p 8015"]
