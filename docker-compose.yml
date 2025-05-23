@@ -2,7 +2,7 @@ version: "3"
 
 services:
   redit:
-    image: ghcr.io/tn-aixpa/redit:1.0.0
+    image: ghcr.io/tn-aixpa/redit:1.1.0
     container_name: redit
     ports:
       - "8015:8015"
