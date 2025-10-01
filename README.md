@@ -10,7 +10,8 @@ template userface for demonstration.
 
 ## Usage
 
-Tool usage documentation [here](./docs/usage.md).
+- [Tool usage documentation](./docs/usage.md)
+- [How to deploy service on Platform](./docs/deploy.md)
 
 ## License
 
