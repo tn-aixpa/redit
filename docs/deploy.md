@@ -38,7 +38,7 @@ serve_run = function.run(
 ```
 As a result of this operation the service 'redit' starts on host port 8015.
 
-Note: For more details about container runtime and its operation, please consult the platform<a href="https://scc-digitalhub.github.io/sdk-docs/reference/runtimes/container/overview/">documentation</a>
+Note: For more details about container runtime and its operation, please consult the platform <a href="https://scc-digitalhub.github.io/sdk-docs/reference/runtimes/container/overview/">documentation</a>
 
 
 ## 4. Test the API
