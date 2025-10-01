@@ -1,0 +1,49 @@
+# AIPC Project Configuration File
+# This file defines the project metadata, dependencies, workflow, and outputs.
+# Ensure to keep this file updated with any changes in the project structure or dependencies.
+# Project: redit
+# Version: 1.0.0
+
+ai: NLP
+domain: PA
+usages: ./docs/usage.md, ./docs/deploy.md
+metadata:
+  name: Redit
+  description: >
+    This project focuses on NLP techniques for public administration applications.
+  kind: product-template
+  ai: NLP
+  domain: PA
+  license: Apache License 2.0
+usage:
+  target_users:
+    - PA operators (municipalities, regional operators, etc.)
+  documentation_links:
+    - usage: ./docs/usage.md, ./docs/deploy.md
+howto:
+  - title: Usage of the service
+    ref: ./docs/usage.md
+  - title: Deployment of service in platform
+    ref: ./docs/deploy.md    
+operations:
+  - id: redit
+    name: redit
+    kind: service
+    task: nlp
+    implementation:
+      framework: aixpa
+      spec:
+        kind: container
+        image: ghcr.io/tn-aixpa/redit:latest
+    inputs:
+      - parameters:
+          - name: data
+            type: string
+            description: text to analyze for extracting entities
+    outputs:
+      - json:
+          name: entities
+          kind: artifact
+          description: extracted entities from the input text        
+
+ 
