@@ -53,4 +53,4 @@ with requests.post(f'http://{SERVICE_URL}/tint', data="Il sottoscritto Luca Rose
     res = r.content
 print(res)
 ```
-Note: Inside the project 'src' folder there exist a jypter notebook <a href="../src/deploy.ipynb">.ipynb</a> that depicts the service deployment and testing operations.
+Note: Inside the project 'src' folder there exist a jypter notebook <a href="../src/deploy.ipynb">deploy.ipynb</a> that depicts the service deployment and testing operations.
